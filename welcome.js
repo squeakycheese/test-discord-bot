@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const { token } = require("./config.json");
+const token = process.env.TOKEN
 const Client = new Discord.Client({
     intents: [
         Discord.GatewayIntentBits.GuildMessages,
@@ -31,7 +31,7 @@ Client.on("guildMemberAdd", (guildMember) => {
 
     // guildMember.guild.channels.fetch().then(channels => console.log(channels)).catch(console.error);
 
-    guildMember.send("Wellcome to the server!");
+    guildMember.send("Welcome to the server!");
 
     guildMember.guild.channels.fetch("1119223176732348438")
         .then(channel => channel.send("Welcome to the server! <@" + guildMember.id + ">"))
